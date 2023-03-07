@@ -1,6 +1,7 @@
 import java.util.Calendar;
 import java.util.Date;
 
+
 // ORACLE JAVA 
 // abstract na class proíbe instancia da classe ( nao da para criar no main uma conta, tem que criar conta corrente
 public  abstract class Conta { // CLASSE MAE, SUPER CLASS
@@ -21,6 +22,7 @@ public  abstract class Conta { // CLASSE MAE, SUPER CLASS
 	public Conta(Cliente cliente, int numeroConta) {
 		this.cliente = cliente;
 		this.numeroConta = numeroConta;
+		this.dataAbertura =  new Date();
 		contador++;
 		
 	}
