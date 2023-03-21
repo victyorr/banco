@@ -38,7 +38,7 @@ public  abstract class Conta { // CLASSE MAE, SUPER CLASS
 
 	}
 
-	public boolean sacar(double valor) {
+	public boolean sacar(double valor) throws SaldoInsuficiente {
 
 		if (this.saldo >= valor) {
 
@@ -46,16 +46,14 @@ public  abstract class Conta { // CLASSE MAE, SUPER CLASS
 				this.saldo = this.saldo - valor;
 				// this.Saldo -= valor; OUTRO METODO PARA O CALCULO
 
-				//System.out.println("Saque de " + valor + " efetuado com sucesso");
+				System.out.println("Saque de " + valor + " efetuado com sucesso");
 				return true;
 			}
 
-		}
-		System.out.println("Saldo insuficiente");
-		return false;
+		} throw new SaldoInsuficiente("Saldo insuficiente");
 	}
 
-	public void transferir(Conta conta, double valor) {
+	public void transferir(Conta conta, double valor) throws SaldoInsuficiente {
 
 		boolean teste = this.sacar(valor);
 		if (teste == true) {

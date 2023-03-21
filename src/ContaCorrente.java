@@ -35,13 +35,26 @@ public class ContaCorrente extends Conta { // subclass
 
 	}
 	
-	public void investimento(double valor, Produto produto) {
+	public void investimento(double valor, Produto produto) throws SaldoInsuficiente {
 		boolean teste = this.sacar(valor);
 		if(teste == true) {
 			saldoInvestimento += produto.investir(valor);
 		}
 		
 		
+	}
+	
+	public void resgatar(double valor) throws SaldoInsuficiente {
+		if(this.saldoInvestimento > 0) {
+			if(valor >= this.saldoInvestimento) {
+				this.saldoInvestimento -= valor;
+			} else {
+				System.out.println("O valor que você quer resgatar é maior");
+			}
+			
+		} else {
+			throw new SaldoInsuficiente("Saldo de investimento insuficiente");
+		}
 	}
 	
 	

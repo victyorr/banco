@@ -19,7 +19,26 @@ public class Executavel {
 		contaVictor.depositar(10000);
 		contaHaoni.depositar(1000);
 		
-		contaVictor.investimento(1000, cdb);
+		try {
+			contaVictor.sacar(100011);
+		} catch (SaldoInsuficiente e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try {
+			contaVictor.investimento(1000, cdb);
+		} catch (SaldoInsuficiente e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			contaVictor.resgatar(500);
+		} catch (SaldoInsuficiente e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		contaVictor.consultarSaldo();
 		
 		
